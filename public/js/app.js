@@ -1,6 +1,7 @@
 
 // WARNING: This is insecure! API key exposed to client
-const ALPHA_VANTAGE_KEY = "P7EBBJ023V46MAPV";
+// api key for ALPHA VANTAGE 
+const api_key = "P7EBBJ023V46MAPV";
 
 async function getPrice() {
     const symbol = document.getElementById('symbol').value;
