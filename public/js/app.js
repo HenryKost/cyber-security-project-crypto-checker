@@ -9,8 +9,13 @@ async function getPrice() {
     const data = await res.json();
     if (data['Realtime Currency Exchange Rate']) {
         const rate = data['Realtime Currency Exchange Rate']['5. Exchange Rate'];
-        // Vulnerable to XSS: symbol not sanitized
-        document.getElementById('result').innerHTML = `<b>${symbol}</b>: $${parseFloat(rate).toFixed(2)}`;
+        // Secure: use textContent to avoid XSS
+        const resultElem = document.getElementById('result');
+        resultElem.textContent = ''; // Clear previous content
+        const bold = document.createElement('b');
+        bold.textContent = symbol;
+        resultElem.appendChild(bold);
+        resultElem.appendChild(document.createTextNode(`: $${parseFloat(rate).toFixed(2)}`));
     } else {
         document.getElementById('result').innerHTML = 'Error fetching data';
     }
