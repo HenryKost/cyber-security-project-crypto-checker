@@ -3,27 +3,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Crypto Price Checker - Secure</title>
+    <title>Crypto Price Checker - Insecure</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Crypto Price Checker (Secure)</h1>
+    <h1>Crypto Price Checker (Insecure)</h1>
     <p>Type a cryptocurrency symbol (e.g., BTC, ETH):</p>
     <input id="symbol" placeholder="BTC">
     <button onclick="getPrice()">Get Price</button>
     <div id="result"></div>
 
-    <script>
-    async function getPrice() {
-        const symbol = document.getElementById('symbol').value;
-        const res = await fetch(`/api/price?symbol=${encodeURIComponent(symbol)}`);
-        const data = await res.json();
-        if (data.price) {
-            document.getElementById('result').textContent = `${data.symbol}: $${data.price}`;
-        } else {
-            document.getElementById('result').textContent = 'Error fetching data';
-        }
-    }
-    </script>
+    <script src="/js/app.js"></script>
 </body>
 </html>
