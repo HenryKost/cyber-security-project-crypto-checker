@@ -1,0 +1,13 @@
+
+{
+  "name": "crypto-price-v1",
+  "version": "1.0.0",
+  "description": "Insecure crypto price checker with API key in client",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
